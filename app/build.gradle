@@ -28,5 +28,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     //'Selendroid'ライブラリのインポート文
-    compile files('selendroid-standalone-0.17.0-with-dependencies.jar')
+    compile files('libs/selendroid-standalone-0.17.0-with-dependencies.jar')
 }

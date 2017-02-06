@@ -10,8 +10,60 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.kaikoro.selendroidtest.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:text="ログインするページのURL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/viewURL" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text=""
+            android:hint="URL"
+            android:ems="10"
+            android:id="@+id/editURL" />
+
+        <Button
+            android:text="HTMLを確認する"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:id="@+id/HTML" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text=""
+            android:hint="ID"
+            android:ems="10"
+            android:id="@+id/editID" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text=""
+            android:hint="Password"
+            android:ems="10"
+            android:id="@+id/editPass" />
+
+        <Button
+            android:text="ログイン"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:id="@+id/runURL" />
+
+    </LinearLayout>
 </RelativeLayout>
