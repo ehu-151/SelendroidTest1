@@ -1,16 +1,13 @@
 package com.example.kaikoro.selendroidtest;
 
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import io.selendroid.common.SelendroidCapabilities;
 
 public class MainActivity extends AppCompatActivity {
     //変数の宣言
@@ -30,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         editPass =(EditText)findViewById(R.id.editPass);    //Password
 
         //起動時にパラメータを読み込む
-        SharedPreferences data = getSharedPreferences("IdInfo", MODE_PRIVATE);
+        SharedPreferences data = getSharedPreferences("loginParameter", MODE_PRIVATE);
         editURL.setText(data.getString("editURL", ""));     //URL
         editID.setText(data.getString("editID", ""));       //ID
         editPass.setText(data.getString("editPass", ""));   //Password
@@ -40,15 +37,30 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View v){
         switch (v.getId()){
             case R.id.runURL:
+//                LoginForm lf=new LoginForm();
+                String url=editURL.getText().toString();
+                String id=editID.getText().toString();
+                String pass=editPass.getText().toString();
+                //              URL                             ID                              Password
+//                lf.htmlCleaner(url,id,pass);
+
+                // httpリクエストを入れる変数
+                Uri.Builder builder = new Uri.Builder();
+
+//                LoginForm task = new LoginForm();
+//                task.execute(builder);
+                break;
+            case R.id.HTML:
+                break;
+            case R.id.save:
                 //パラメータの保存する
                 SharedPreferences data = getSharedPreferences("loginParameter", MODE_PRIVATE);
                 SharedPreferences.Editor loginParameter = data.edit();
                 loginParameter.putString("editURL",editURL.getText().toString());   //URL
                 loginParameter.putString("editID",editID.getText().toString());     //ID
                 loginParameter.putString("editPass",editPass.getText().toString()); //Password
-                break;
-            case R.id.HTML:
-                break;
+                loginParameter.apply();
+                Toast.makeText(this, "保存しました", Toast.LENGTH_SHORT).show();
         }
     }
 }
