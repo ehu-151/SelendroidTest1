@@ -1,5 +1,6 @@
 package com.example.kaikoro.selendroidtest;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -37,18 +38,17 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View v){
         switch (v.getId()){
             case R.id.runURL:
-//                LoginForm lf=new LoginForm();
+
                 String url=editURL.getText().toString();
                 String id=editID.getText().toString();
                 String pass=editPass.getText().toString();
-                //              URL                             ID                              Password
-//                lf.htmlCleaner(url,id,pass);
 
-                // httpリクエストを入れる変数
-                Uri.Builder builder = new Uri.Builder();
+                Intent intent = new Intent(this, LoginFormActivity.class);
+                intent.putExtra("url", url);
+                intent.putExtra("id", id);
+                intent.putExtra("pass", pass);
+                startActivity(intent);
 
-//                LoginForm task = new LoginForm();
-//                task.execute(builder);
                 break;
             case R.id.HTML:
                 break;
